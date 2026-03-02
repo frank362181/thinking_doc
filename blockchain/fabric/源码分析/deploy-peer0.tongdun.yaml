@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: peer0.tongdun.fabric
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: peer0.tongdun.fabric
+  strategy: 
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        name: peer0.tongdun.fabric
+    spec:
+      imagePullSecrets:
+      - name: harbor-secret
+      containers:
+      - name: fabric-couchdb
+        image: registry.hz.td/blockchain/fabric-couchdb:0.4.15-dev
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5984
+        volumeMounts:
+        - name: couchdb-data
+          mountPath: /opt/couchdb/data
+        - name: couchdb-config
+          mountPath: /opt/couchdb/etc/local.d
+        resources:
+          requests:
+            cpu: 100m
+            memory: 200Mi
+          limits:
+            cpu: 4
+            memory: 8192M
+      - name: fabric-peer
+        image: registry.hz.td/blockchain/fabric-peer:1.4.1-dev
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 7051
+        - containerPort: 7052
+        - containerPort: 9443
+        env:
+        - name: SERVICE_7051_NAME
+          value: "peer0.tongdun.fabric.td-hz.blockchain"
+        - name: CLUSTER
+          value: "peer0.tongdun"
+        - name: ENV
+          value: "production"
+        - name: LOG_LEVEL
+          value: "info"
+        volumeMounts:
+        - name: peer-data
+          mountPath: /var/hyperledger/peer0.tongdun/data
+        - name: docker-sock
+          mountPath: /host/var/run/docker.sock
+        resources:
+          requests:
+            cpu: 100m
+            memory: 200Mi
+          limits:
+            cpu: 4
+            memory: 8192M
+      volumes:
+      - name: peer-data
+        hostPath:
+          path: /data/blockchain-fabric/peer0.tongdun
+      - name: couchdb-data
+        hostPath:
+          path: /data/blockchain-fabric/couchdb0.tongdun/data
+      - name: couchdb-config
+        hostPath:
+          path: /data/blockchain-fabric/couchdb0.tongdun/config
+      - name: docker-sock
+        hostPath:
+          path: /var/run/docker.sock
+          type: Socket
+      nodeSelector:
+        k8s-worker: a
