@@ -132,19 +132,19 @@ openclaw的配置系统不是随便写JSON就行。官方配置文档明确说�
 
 ### 从setup看openclaw的本地状态模型
 通过setup命令，可以初步看到openclaw的本地状态模型：
-~./openclaw/openclaw.json
+~/.openclaw/openclaw.json
     |
 系统配置
     |
-~./openclaw/workspace
+~/.openclaw/workspace
     |
 agent工作区和行为文件
     |
-~./openclaw/agents/<agentId>/sessions
+~/.openclaw/agents/<agentId>/sessions
     |
 会话历史与trnnscript
 
-~。/openclaw/credentials
+~/.openclaw/credentials
     |
 渠道、模型和认证状态
 
