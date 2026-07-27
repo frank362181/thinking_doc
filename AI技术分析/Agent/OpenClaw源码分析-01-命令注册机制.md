@@ -17,7 +17,7 @@ OpenClaw使用commander构建CLI命令系统。在src/cli/program/build-program.
 OpenClaw的命令不是全部硬编码在一个巨大的文件里面的，而是通过"描述符 + 注册器"的方式组织：在src/cli/program目录下，可以看到大量的与命令注册相关的文件，例如 build-program.ts、command_registry.ts、cor-command-descriptors.ts、register.subclis.ts、subcli-descriptors.ts等。这个
 
 src/cli/program目录就说明了OpenClaw把CLI命令系统做成了一个独立的子模块。
-其中core-command-descriptors.ts为何核心命令描述信息。例如源码中可以看到crestodian、setup、onboard等命令，他们都是name、description、hasSubCommands等字段。
+其中core-command-descriptors.ts为核心命令描述信息。例如源码中可以看到crestodian、setup、onboard等命令，他们都是name、description、hasSubCommands等字段。
 
 命令的描述如下：
  {

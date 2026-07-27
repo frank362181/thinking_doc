@@ -98,7 +98,7 @@ setupCommand除了配置文件和workspace，还会处理sessions目录，源码
 以上三者共同构建了OpenClaw本地运行的基础状态。
 
 ### onboard为何比setup更完整
-setup只是解决“基础文件和目录存在”的问题；而onboard解决的是“用户第一次使用OpenClaw时如何完整配hi系统”的问题。官方onboard文档说明，openclaw onboard时完整引导式onboarding，用于配置local或remote Gateway，并覆盖模型认证、workspace、Gateway、channels、skills和health等流程。也就是说：
+setup只是解决“基础文件和目录存在”的问题；而onboard解决的是“用户第一次使用OpenClaw时如何完整配系统”的问题。官方onboard文档说明，openclaw onboard时完整引导式onboarding，用于配置local或remote Gateway，并覆盖模型认证、workspace、Gateway、channels、skills和health等流程。也就是说：
 -   setup只是负责地基；
 -   onboard负责从地基到可用系统的一整套装修流程。
 
@@ -118,7 +118,7 @@ openclaw onboard --non-interactive \
     --accept-risk
     
 还支持远程Gateway、secreref、gateway token、跳过health、跳过boostrap等配置。
-这说明，OpenClaw的初始化既面向普通用户，页面先自动化部署场景：
+这说明，OpenClaw的初始化既面向普通用户，也面向自动化部署场景：
 -   普通用户：openclaw onboard，一步步选择和确认
 -   自动化脚本：openclaw onboard --non-interactive ...，直接写入配置并完成初始化
 从源码角度来看，onboard比setup更复杂，因为它要处理用户输入、认证方式、模型provider、gateway模式、channel、skills、healthe check甚至迁移逻辑。

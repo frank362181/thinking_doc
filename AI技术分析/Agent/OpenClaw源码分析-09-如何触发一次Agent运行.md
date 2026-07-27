@@ -489,7 +489,7 @@ async function getOrLoadBootstrapFiles(params) {
 OpenClaw社区最终的改进方案是将sessionCache直接移除，而是直接使用loadBootstrapFiles构建的L2级缓存
 
 #### 2. 队列与并发控制
-为了防止同一个会话的多个请求发生冲突，并保持对胡历史的一致性，runEmbeddedAgent会将运行请求放入队列中按会话串行化执行；同时，对会话文件的写入操作也会受到文件锁的保护；
+为了防止同一个会话的多个请求发生冲突，并保持对话历史的一致性，runEmbeddedAgent会将运行请求放入队列中按会话串行化执行；同时，对会话文件的写入操作也会受到文件锁的保护；
 
 #### 3. 提示词组装
 系统提示词（system prompt）由多个部分动态组装而成：
