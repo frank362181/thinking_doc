@@ -1,0 +1,28 @@
+# golang环境配置 for visual studio code
+
+## 1. 安装go的开发包
+
+## 2.安装vscode
+
+### 1.打开VS Code 安装golang扩展
+
+- 点击左侧扩展图标（或按Ctrl+Shift+X）
+- 搜索"Go":安装由"Go Team at Google"发布的Go扩展
+- 安装golang工具
+  - 安装代码格式化工具:go install golang.org/x/tools/cmd/goimports@latest
+  - 代码安全检查：go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+  - 安装 gocode：go install github.com/mdempsky/gocode@latest --- 代码补全
+  - 安装 gopkgs：go install github.com/uudashr/gopkgs/v2/cmd/gopkgs@latest --- 包管理
+  - 安装 go-outline：go install github.com/ramya-rao-a/go-outline@latest --- 代码大纲
+  - 安装 go-symbols：go install github.com/acroca/go-symbols@latest --- 符号搜搜
+  - 安装 guru：go install golang.org/x/tools/cmd/guru@latest  --- 代码分析
+  - 安装 gorename：go install golang.org/x/tools/cmd/gorename@latest --- 重命名
+  - 安装 gotests：go install github.com/cweill/gotests/gotests@latest --- 测试生成
+  - 安装 gomodifytags：go install github.com/fatih/gomodifytags@latest --- 结构体标签修改
+  - 安装 impl：go install github.com/josharian/impl@latest --- 接口实现
+  - 安装 dlv：go install github.com/go-delve/delve/cmd/dlv@latest --- 调试器
+  - 安装 goplay：go install github.com/haya14busa/goplay/cmd/goplay@latest --- Go playgound 本地运行go代码片段
+  - 安装 gotest：go install github.com/cweill/gotests/gotest@latest --- 测试运行
+  - 安装 godef：go install github.com/rogpeppe/godef@latest --- 代码跳转
+  - 安装 goreturns：go install github.com/sqs/goreturns@latest ---代码补全
+  - 安装 golint：go install golang.org/x/lint/golint@latest --- 代码检查
